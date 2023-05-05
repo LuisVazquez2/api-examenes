@@ -2,11 +2,12 @@ from flask import Blueprint, jsonify, request
 from database.db import db
 from models.tests import Test
 from models.questions import Question
+from middlewares.auth import authVerify
 
 tests = Blueprint('tests', __name__)
 
-
 @tests.route('/', methods=['GET'])
+@authVerify('admin', 'super-admin')
 def get_tests():
     print("get_tests")
     test = Test("Test 1", "Test 1 description")
