@@ -61,7 +61,7 @@ def verifyHeader(req):
     if authHeader == "":
         return None
 
-    authHeader = authHeader.split("\xa0") # split the header by space
+    authHeader = authHeader.split(" ") # split the header by space
 
     if len(authHeader) != 2:
         return None

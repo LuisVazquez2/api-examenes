@@ -1,6 +1,18 @@
 from database.db import db
 
+
 class User(db.Model):
+    """
+    User model class
+
+    Class to create a user object and store it in the database using SQLAlchemy ORM and flask-migrate for migrations.
+    Args:
+        db (object): SQLAlchemy object imported from database.db
+
+    Returns:
+        object: User object
+    """
+
     __tablename__ = "users"
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     name = db.Column(db.String(100), nullable=False)
